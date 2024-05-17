@@ -1,0 +1,17 @@
+<h1>Camisetas NBA</h1>
+
+<div class="d-flex flex-row flex-wrap justify-content-around">
+    @for (e of elementos; track $index) {
+    <div>
+        <div class="card mb-3" style="width: 18rem; height: 16rem;">
+            <img src="..." class="card-img-top" alt="imagen">
+            <div class="card-body">
+                <h5 class="card-title">Camiseta de {{e.nombre}}</h5>
+                <p class="card-text">${{e.precio}}</p>
+                <p class="card-text">Disponibles: {{e.cant_disponible}}</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            </div>
+        </div>
+    </div>
+    }
+</div>
