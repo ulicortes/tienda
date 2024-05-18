@@ -1,17 +1,28 @@
 <h1>Camisetas NBA</h1>
-
-<div class="d-flex flex-row flex-wrap justify-content-around">
-    @for (e of elementos; track $index) {
-    <div>
-        <div class="card mb-3" style="width: 18rem; height: 16rem;">
-            <img src="..." class="card-img-top" alt="imagen">
-            <div class="card-body">
-                <h5 class="card-title">Camiseta de {{e.nombre}}</h5>
-                <p class="card-text">${{e.precio}}</p>
-                <p class="card-text">Disponibles: {{e.cant_disponible}}</p>
-                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+<div style="display: flex; flex-direction: row;">
+    <div class="d-flex flex-row flex-wrap justify-content-around">
+        @for (e of elementos; track $index) {
+        <div>
+            <div class="card mb-3" style="width: 18rem; height: fit-content;">
+                <img [src]="elementos[0].imagen" class="card-img-top" [alt]="e.nombre">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta de {{e.nombre}}</h5>
+                    <p class="card-text">${{e.precio}}</p>
+                    <p class="card-text">Disponibles: {{e.cant_disponible}}</p>
+                    <a [routerLink]="['/detalle',e.id]" class="btn btn-primary">Agregar al carrito</a>
+                    @if (e.cant_disponible > 0) {
+                    <button class="btn btn-primary m-2" (click)="disminuir(e)">-</button>
+                    <input type="text" style="width: 30%; text-align: center;" [(ngModel)]="e.cant_a_comprar">
+                    <button class="btn btn-primary m-2" (click)="aumentar(e)">+</button>
+                    <button class="btn btn-info m-2" (click)="agregarAlCarrito(e)">Agregar</button>
+                    } @else {
+                        <p class="bg-warning">No hay camisetas disponibles en este momento</p>
+                    }
+    
+                </div>
             </div>
         </div>
+        }
     </div>
-    }
+    <app-carrito></app-carrito>
 </div>
