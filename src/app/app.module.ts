@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ListaElementosComponent } from './componentes/lista-elementos/lista-elementos.component';
 import { DetalleElementoComponent } from './componentes/detalle-elemento/detalle-elemento.component';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CarritoComponent } from './componentes/carrito/carrito.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

@@ -7,8 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ServicioCarritoService {
   private _carrito :Elemento[] = [];
+  private _cantidad: number = 0;
 
   carrito: BehaviorSubject<Elemento[]> = new BehaviorSubject(this._carrito);
+  cantidad: BehaviorSubject<number> = new BehaviorSubject(this._cantidad);
   constructor() { }
 
   agregar(elemento: Elemento) {
@@ -18,8 +20,9 @@ export class ServicioCarritoService {
     } else {
       cosa.cant_a_comprar += elemento.cant_a_comprar;
     }
-    console.log(this._carrito);
+    this._cantidad += elemento.cant_a_comprar;
     this.carrito.next(this._carrito);
+    this.cantidad.next(this._cantidad);
   }
 
   
