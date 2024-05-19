@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServicioCarritoService } from './servicios/carrito.service';
+import { Elemento } from './interfaces/elemento';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tienda';
+  cant: number;
+  constructor(private cantidad: ServicioCarritoService){
+    cantidad.cantidad.subscribe((observable) => this.cant = observable);
+    
+  }
+
 }
