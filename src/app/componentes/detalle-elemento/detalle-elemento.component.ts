@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ListaElementosComponent } from '../lista-elementos/lista-elementos.component';
 import { Elemento } from '../../interfaces/elemento';
+import { ElementosService } from '../../servicios/elementos.service';
+import { ServicioCarritoService } from '../../servicios/carrito.service';
+import { ListaElementosComponent } from '../lista-elementos/lista-elementos.component';
 
 @Component({
   selector: 'app-detalle-elemento',
@@ -10,13 +12,32 @@ import { Elemento } from '../../interfaces/elemento';
 })
 export class DetalleElementoComponent {
   id: number;
-  equipo: Elemento;
+  carro: Elemento[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  @Input()
+  elemento: Elemento;
 
-  ngOnInit(): void {
-    this.id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    // this.equipo = ListaElementosComponent.getElemento(this.id);
+  constructor(private carrito: ServicioCarritoService, private route: ActivatedRoute, private apiElementos: ElementosService) {
+    carrito.carrito.subscribe((observable) => this.carro = observable);
   }
 
+  // ngOnInit(): void {
+  //   this.id = parseInt(this.route.snapshot.paramMap.get('id')!)-1;
+  //   this.apiElementos.listaCompleta().subscribe(elem => this.elemento = elem[this.id]);
+  // }
+
+  aumentar(e: Elemento) {
+    if (e.cant_a_comprar < e.cant_disponible) e.cant_a_comprar++;
+  }
+  disminuir(e: Elemento) {
+    if (e.cant_a_comprar > 0) e.cant_a_comprar--;
+  }
+
+  agregarAlCarrito(elemento: Elemento): void {
+    if(elemento.cant_a_comprar < elemento.cant_disponible) {
+      this.carrito.agregar(elemento);
+      elemento.cant_disponible -= elemento.cant_a_comprar;
+      elemento.cant_a_comprar = 0;
+    }
+  }
 }

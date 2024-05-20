@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { ListaElementosComponent } from './componentes/lista-elementos/lista-elementos.component';
 import { DetalleElementoComponent } from './componentes/detalle-elemento/detalle-elemento.component';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { InputCantidadComponent } from './componentes/input-cantidad/input-cantidad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaElementosComponent,
     DetalleElementoComponent,
-    CarritoComponent
+    CarritoComponent,
+    InputCantidadComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

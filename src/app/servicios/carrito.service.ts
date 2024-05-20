@@ -14,6 +14,7 @@ export class ServicioCarritoService {
   constructor() { }
 
   agregar(elemento: Elemento) {
+    console.log("ELEMENTO CANT_A_COMPRAR: "+elemento.cant_a_comprar);
     let cosa: Elemento = this._carrito.find((obj) => obj.nombre == elemento.nombre)!;
     if(!cosa) {
       this._carrito.push({...elemento});
@@ -25,5 +26,28 @@ export class ServicioCarritoService {
     this.cantidad.next(this._cantidad);
   }
 
+  sumarUno(elem: Elemento) {
+    let cosa: Elemento = this._carrito.find((obj) => obj.nombre == elem.nombre)!;
+    if(cosa) {
+      cosa.cant_a_comprar ++;
+    }
+    this._cantidad ++;
+    this.carrito.next(this._carrito);
+    this.cantidad.next(this._cantidad);
+  }
+
+  restarUno(elem: Elemento) {
+    let cosa: Elemento = this._carrito.find((obj) => obj.nombre == elem.nombre)!;
+    if(cosa) {
+      cosa.cant_a_comprar--;
+      if(cosa.cant_a_comprar == 0) {
+        let index = this._carrito.indexOf(cosa);
+        this._carrito.splice(index, 1);
+      }
+    }
+    this._cantidad--;
+    this.carrito.next(this._carrito);
+    this.cantidad.next(this._cantidad);
+  }
   
 }

@@ -1,0 +1,25 @@
+.carrito-cnt {
+    height: 100vh;
+    text-align: center;
+    color: whitesmoke;
+    justify-content: center;
+}
+
+.carrito_elem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    width: 40rem;
+    vertical-align: middle;
+    border: 0px solid;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: auto auto 2rem auto;
+}
+
+img {
+    width: 6rem;
+}

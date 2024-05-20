@@ -1,0 +1,13 @@
+
+.lista_contenedor{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+.tarjeta {
+    box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.671);
+}
+#titulo {
+    text-align: center;
+    color: whitesmoke;
+}
