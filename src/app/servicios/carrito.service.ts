@@ -49,5 +49,12 @@ export class ServicioCarritoService {
     this.carrito.next(this._carrito);
     this.cantidad.next(this._cantidad);
   }
+
+  vaciarCarrito() {
+    this._carrito.length = 0;
+    this._cantidad = 0;
+    this.carrito.next(this._carrito);
+    this.cantidad.next(this._cantidad);
+  }
   
 }

@@ -38,4 +38,7 @@ export class CarritoComponent {
       elemento.cant_a_comprar = 0;
     }
   }
+  vaciarTodoElCarrito() {
+    this.carrito.vaciarCarrito();
+  }
 }

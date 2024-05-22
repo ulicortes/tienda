@@ -34,7 +34,7 @@ export class DetalleElementoComponent {
   }
 
   agregarAlCarrito(elemento: Elemento): void {
-    if(elemento.cant_a_comprar < elemento.cant_disponible) {
+    if(elemento.cant_a_comprar <= elemento.cant_disponible) {
       this.carrito.agregar(elemento);
       elemento.cant_disponible -= elemento.cant_a_comprar;
       elemento.cant_a_comprar = 0;
