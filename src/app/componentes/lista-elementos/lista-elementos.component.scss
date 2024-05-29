@@ -1,11 +1,16 @@
-
-.lista_contenedor{
+.lista_contenedor {
+    padding-top: 5rem;
+}
+.lista_camisetas{
     margin-top: 3rem;
     display: flex;
     flex-direction: row;
 }
 .tarjeta {
     box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.671);
+}
+.tarjeta:hover {
+    box-shadow: 10px 10px 20px 20px rgba(230, 142, 12, 0.856);
 }
 #titulo {
     text-align: center;

@@ -1,25 +1,17 @@
-<!-- <div style="display: flex; flex-direction: row; margin: 0 auto 0 auto"> -->
-
-    <div>
-        <div class="card. mb-3" style="text-align: center;">
-            <h2 class="card-title">Camiseta de {{elemento.nombre}}</h2>
-            <h4 class="card-text">${{elemento.precio}}</h4>
-            <div class="card-body" >
-                <div style="width: 50%; margin: auto;">
-                    <img [src]="elemento.imagen" class="card-img-top" [alt]="elemento.nombre">
-                
-                </div>
-                <h4 class="card-text">Disponibles: {{elemento.cant_disponible}}</h4>
-                @if (elemento.cant_disponible > 0) {
-                <button class="btn btn-primary m-2" (click)="disminuir(elemento)">-</button>
-                <input type="number" style="width: 30%; text-align: center;" [(ngModel)]="elemento.cant_a_comprar">
-                <button class="btn btn-primary m-2" (click)="aumentar(elemento)">+</button>
-                <button class="btn btn-info m-2" (click)="agregarAlCarrito(elemento)">Agregar</button>
-                } @else {
-                <p class="bg-warning">No hay camisetas disponibles en este momento</p>
-                }
+<div>
+    <div class="card. mb-3" style="text-align: center;">
+        <h2 class="card-title">Camiseta de {{elemento.nombre}}</h2>
+        <h4 class="card-text">${{elemento.precio}}</h4>
+        <div class="card-body">
+            <div style="width: 50%; margin: auto;">
+                <img [src]="elemento.imagen" class="card-img-top" [alt]="elemento.nombre">
             </div>
+            <h4 class="card-text">Disponibles: {{elemento.cant_disponible}}</h4>
+            @if (elemento.cant_disponible > 0) {
+            <app-input-cantidad [elemento]="elemento"></app-input-cantidad>
+            } @else {
+            <p class="bg-warning">No hay camisetas disponibles en este momento</p>
+            }
         </div>
     </div>
-<!-- <app-carrito></app-carrito> -->
-<!-- </div> -->
+</div>

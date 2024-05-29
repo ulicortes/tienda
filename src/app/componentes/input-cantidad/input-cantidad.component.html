@@ -1,1 +1,4 @@
-<p>input-cantidad works!</p>
+<button class="btn btn-primary m-2" (click)="disminuir(elemento)">-</button>
+<input type="number" style="width: 30%; text-align: center;" [(ngModel)]="elemento.cant_a_comprar">
+<button class="btn btn-primary m-2" (click)="aumentar(elemento)">+</button>
+<button class="btn btn-info m-2" (click)="agregarAlCarrito(elemento)">Agregar</button>

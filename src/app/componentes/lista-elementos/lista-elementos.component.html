@@ -1,6 +1,6 @@
-<div>
+<div class="lista_contenedor">
     <h1 id="titulo">Bienvenido al sitio de venta de camisetas NBA</h1>
-    <div class="lista_contenedor">
+    <div class="lista_camisetas">
         <div class="d-flex flex-row flex-wrap justify-content-around">
             @for (e of elementos; track $index) {
             <div>
@@ -10,12 +10,12 @@
                         <h5 class="card-title">{{e.nombre}}</h5>
                         <p class="card-text">${{e.precio}}</p>
                         @if (e.cant_disponible > 0) {
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop" (click)="habilitarDetalle(e.id)">
-                            Ver producto
+                            Ver Detalle
                         </button>
                         } @else {
-                            <p class="bg-danger" style="text-align: center; padding: 0; color: white;">Sin stock</p>
+                        <p class="bg-danger" style="text-align: center; padding: 0; color: white;">Sin stock</p>
                         }
                     </div>
                 </div>
@@ -41,7 +41,5 @@
             </div>
 
         </div>
-
-
     </div>
 </div>
