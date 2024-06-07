@@ -6,13 +6,16 @@
             @for (l of (lista$ | async); track $index) {
             <li class="d-flex flex-row carrito_elem">
                 <div>
-                    <img [src]="l.imagen" class="card-img-top" [alt]="l.nombre">
+                    <img [src]="l.imagen" class="card-img-top." [alt]="l.nombre">
                 </div>
-                <h4>{{l.nombre}} - {{l.cant_a_comprar}} unidades</h4>
+                <div class="d-flex-flex-column">
+                    <h4>{{l.nombre}}</h4>
+                    <h4>{{l.cant_a_comprar}} unidad/es</h4>
+                </div>
                 <div class="d-flex flex-column">
-                    <button class="btn btn-primary m-2" (click)="disminuir(l)">-</button>
-                    <input type="number" disabled="true" style="width: 30%; text-align: center;" [(ngModel)]="l.cant_a_comprar">
-                    <button class="btn btn-primary m-2" (click)="aumentar(l)">+</button>
+                    <button class="btn btn-primary m-4 p-3" (click)="disminuir(l)">-</button>
+                    <!-- <input type="number" disabled="true" style="width: 30%; text-align: center;" [(ngModel)]="l.cant_a_comprar"> -->
+                    <button class="btn btn-primary m-4 p-3" (click)="aumentar(l)">+</button>
                 </div>
             </li>
             }

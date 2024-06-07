@@ -9,10 +9,6 @@ import { Elemento } from './interfaces/elemento';
 })
 export class AppComponent {
   title = 'tienda';
-  cant: number;
-  constructor(private cantidad: ServicioCarritoService){
-    cantidad.cantidad.subscribe((observable) => this.cant = observable);
-    
-  }
+  
 
 }
