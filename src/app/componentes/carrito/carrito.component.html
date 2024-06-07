@@ -1,7 +1,8 @@
 <div class="carrito-cnt">
     <h1>CARRITO</h1>
     @if (cant>0) {
-        <button class="btn btn-danger m-2" (click)="vaciarTodoElCarrito()">Vaciar carrito</button>
+        
+        <h2>Total a pagar: ${{total}}</h2>
         <ul class="mt-2">
             @for (l of (lista$ | async); track $index) {
             <li class="d-flex flex-row carrito_elem">
@@ -14,12 +15,12 @@
                 </div>
                 <div class="d-flex flex-column">
                     <button class="btn btn-primary m-4 p-3" (click)="disminuir(l)">-</button>
-                    <!-- <input type="number" disabled="true" style="width: 30%; text-align: center;" [(ngModel)]="l.cant_a_comprar"> -->
                     <button class="btn btn-primary m-4 p-3" (click)="aumentar(l)">+</button>
                 </div>
             </li>
             }
         </ul>
+        <button class="btn btn-danger m-2" (click)="vaciarTodoElCarrito()">Vaciar carrito</button>
     } @else {
         <h3>El carrito se encuentra vacio en este momento.</h3>
     }

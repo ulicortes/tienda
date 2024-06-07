@@ -8,13 +8,14 @@ import { BehaviorSubject } from 'rxjs';
 export class ServicioCarritoService {
   private _carrito :Elemento[] = [];
   private _cantidad: number = 0;
+  private _total: number = 0;
 
   carrito: BehaviorSubject<Elemento[]> = new BehaviorSubject(this._carrito);
   cantidad: BehaviorSubject<number> = new BehaviorSubject(this._cantidad);
+  total: BehaviorSubject<number> = new BehaviorSubject(this._total);
   constructor() { }
 
   agregar(elemento: Elemento) {
-    console.log("ELEMENTO CANT_A_COMPRAR: "+elemento.cant_a_comprar);
     let cosa: Elemento = this._carrito.find((obj) => obj.nombre == elemento.nombre)!;
     if(!cosa) {
       this._carrito.push({...elemento});
@@ -22,8 +23,10 @@ export class ServicioCarritoService {
       cosa.cant_a_comprar += elemento.cant_a_comprar;
     }
     this._cantidad += elemento.cant_a_comprar;
+    this._total = parseFloat(( this._total + (elemento.precio * elemento.cant_a_comprar) ).toFixed(2));
     this.carrito.next(this._carrito);
     this.cantidad.next(this._cantidad);
+    this.total.next(this._total);
   }
 
   sumarUno(elem: Elemento) {
@@ -32,8 +35,10 @@ export class ServicioCarritoService {
       cosa.cant_a_comprar ++;
     }
     this._cantidad ++;
+    this._total = parseFloat((this._total + elem.precio).toFixed(2));
     this.carrito.next(this._carrito);
     this.cantidad.next(this._cantidad);
+    this.total.next(this._total);
   }
 
   restarUno(elem: Elemento) {
@@ -46,15 +51,19 @@ export class ServicioCarritoService {
       }
     }
     this._cantidad--;
+    this._total = parseFloat((this._total - elem.precio).toFixed(2));
     this.carrito.next(this._carrito);
     this.cantidad.next(this._cantidad);
+    this.total.next(this._total);
   }
 
   vaciarCarrito() {
     this._carrito.length = 0;
     this._cantidad = 0;
+    this._total = 0;
     this.carrito.next(this._carrito);
     this.cantidad.next(this._cantidad);
+    this.total.next(this._total);
   }
   
 }

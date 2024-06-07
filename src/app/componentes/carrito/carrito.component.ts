@@ -14,10 +14,12 @@ export class CarritoComponent {
   @Input()
   elemento: Elemento;
   cant: number;
+  total: number;
 
   constructor(private carrito: ServicioCarritoService, private cantidad: ServicioCarritoService) {
     this.lista$ = carrito.carrito.asObservable();
-    this.cantidad.cantidad.subscribe((observable) => this.cant = observable);  
+    this.carrito.cantidad.subscribe((observable) => this.cant = observable); 
+    this.carrito.total.subscribe((observable) => this.total = observable);
   }
 
   aumentar(e: Elemento) {

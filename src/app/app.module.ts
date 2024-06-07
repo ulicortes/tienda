@@ -10,6 +10,7 @@ import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { InputCantidadComponent } from './componentes/input-cantidad/input-cantidad.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { SobreNosotrosComponent } from './componentes/sobre-nosotros/sobre-nosotros.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     DetalleElementoComponent,
     CarritoComponent,
     InputCantidadComponent,
-    NavbarComponent
+    NavbarComponent,
+    SobreNosotrosComponent
   ],
   imports: [
     BrowserModule,

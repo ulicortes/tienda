@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListaElementosComponent } from './componentes/lista-elementos/lista-elementos.component';
 import { DetalleElementoComponent } from './componentes/detalle-elemento/detalle-elemento.component';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
+import { SobreNosotrosComponent } from './componentes/sobre-nosotros/sobre-nosotros.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
     component: ListaElementosComponent
   },
   {
-    path: 'detalle/:id',
-    component: DetalleElementoComponent
+    path: 'nosotros',
+    component: SobreNosotrosComponent
   },
   {
     path: 'carrito',
