@@ -6,4 +6,4 @@ nos dijeron que pasaramos no va a ser el mismo pero este link es editable y creo
 
 Link Stackblitz: https://stackblitz.com/~/github.com/ulicortes/tienda?view=editor
 
-Ulises Cortes T.; 40089992, ulisestcortes@gmail.com, Sede Tandil
+Ulises Cortes T., ulisestcortes@gmail.com
